@@ -9,12 +9,17 @@
     <ui:define name="content">
         <div class="p-a">
             <h:form id="form">
-                    <p:outputLabel for="my_name" value="Name" />
-                    <p:inputText id="my_name" required="true" value="#{myBean.name}" label="my name" />
-                    <p:message for="my_name" id="msglastname" />
+                <p:outputLabel for="my_name" value="Name" />
+                <p:inputText id="my_name" required="true" value="#{nameView.name}" label="my name" />
+                <p:message for="my_name" />
+                
+                <p:selectOneMenu id="my_title" value="#{nameView.title}" converter="titleConverter">
+                    <f:selectItems value="#{nameView.titles}" itemLabel="#{title.displayName}" itemValue="#{title}" />
+                </p:selectOneMenu>
+                <p:message for="my_title" />
 
 
-                    <p:commandButton value="Welcome me" action="welcome" icon="fa fa-fw fa-pencil" ajax="false" />
+                <p:commandButton value="Welcome me" action="welcome" icon="fa fa-fw fa-pencil" ajax="false" />
             </h:form>
         </div>
     </ui:define>
