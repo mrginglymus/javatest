@@ -1,0 +1,22 @@
+<ui:composition template="templates/page.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+>
+    <ui:define name="title">Hellooooooo</ui:define>
+    <ui:define name="content">
+        <div class="p-a">
+            <h:form id="form">
+                    <p:outputLabel for="my_name" value="Name" />
+                    <p:inputText id="my_name" required="true" value="#{myBean.name}" label="my name" />
+                    <p:message for="my_name" id="msglastname" />
+
+
+                    <p:commandButton value="Welcome me" action="welcome" icon="fa fa-fw fa-pencil" ajax="false" />
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+
