@@ -19,7 +19,7 @@ import works.bill.mavenproject.service.TitleService;
  *
  * @author bill
  */
-@FacesConverter("titleConverter")
+@FacesConverter(forClass=Title.class)
 public class TitleConverter implements Converter {
     
     public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
@@ -28,7 +28,7 @@ public class TitleConverter implements Converter {
                 TitleService titleService = (TitleService) fc.getExternalContext().getApplicationMap().get("titleService");
                 return titleService.getTitles().get(Integer.parseInt(value));  
             } catch(NumberFormatException e) {
-                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid titl"));
+                throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid title: " + value));
             }
         } else {
             return null;

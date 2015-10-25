@@ -10,10 +10,14 @@
         <div class="p-a">
             <h:form id="form">
                 <p:outputLabel for="my_name" value="Name" />
-                <p:inputText id="my_name" required="true" value="#{nameView.name}" label="my name" />
+                <p:inputText id="my_name" required="true" value="#{nameView.name}" label="my name">
+                    <f:converter converterId="works.bill.NameConverter" />
+                </p:inputText>
                 <p:message for="my_name" />
                 
-                <p:selectOneMenu id="my_title" value="#{nameView.title}" converter="titleConverter">
+                <p:outputLabel for="my_title" value="Title" />
+                <p:selectOneMenu id="my_title" value="#{nameView.title}" required="true">
+                    <f:selectItem itemLabel="--select--" itemValue="#{null}" noSelectionOption="true" />
                     <f:selectItems value="#{nameView.titles}" itemLabel="#{title.displayName}" itemValue="#{title}" />
                 </p:selectOneMenu>
                 <p:message for="my_title" />
